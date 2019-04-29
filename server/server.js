@@ -3,7 +3,8 @@ require('./config/config')
 
 const express = require('express')
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express()
 
@@ -16,6 +17,11 @@ app.use(bodyParser.json())
 
 // configuración global de rutas
 app.use(require('./routes/index'));
+
+
+// habilitar 'public'
+
+app.use(express.static(path.resolve(__dirname + '/../public')));
 
 
 
