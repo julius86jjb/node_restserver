@@ -1,19 +1,21 @@
-// =================
+// ==================================
 // Puerto
-// =================
+// ==================================
 
 process.env.PORT = process.env.PORT || 3000;
 
 
-// ================
+// =================================
 // Entorno
-// ================
+// =================================
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 
-// ================
+// =================================
 // Base de Datos
-// ================
+// =================================
+
 let urlDB;
 
 if (process.env.NODE_ENV === 'dev') {
@@ -23,3 +25,20 @@ if (process.env.NODE_ENV === 'dev') {
 }
 
 process.env.URLDB = urlDB;
+
+// =================================
+// Vencimiento Token
+// =================================
+
+// { expiresIn: 60 * 60 * 24 * 30 } => 60seg, 60min, 24h, 30días
+
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+
+
+// =================================
+// SEED (semilla de autenticación)
+// =================================
+
+// 'este-es-el-seed-desarrollo'
+
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
